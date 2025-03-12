@@ -1,0 +1,2 @@
+C:/Users/nanda/Documents/GitHub/mobile_cuanspace/android/app/.cxx/Debug/v5z5r56a/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/nanda/Documents/GitHub/mobile_cuanspace/android/app/.cxx/Debug/v5z5r56a/armeabi-v7a/CMakeFiles/rebuild_cache.dir

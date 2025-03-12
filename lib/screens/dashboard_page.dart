@@ -19,7 +19,7 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     // List halaman dengan username dikirim ke UserPage
-    final List<Widget> _pages = [
+    final List<Widget> pages = [
       HomePage(),
       NotificationPage(),
       OrdersPage(),
@@ -27,7 +27,7 @@ class _DashboardPageState extends State<DashboardPage> {
     ];
 
     return Scaffold(
-      body: _pages[_selectedIndex], // Pastikan ini mengambil halaman yang sesuai
+      body: pages[_selectedIndex], // Pastikan ini mengambil halaman yang sesuai
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.black, // Warna item yang dipilih
