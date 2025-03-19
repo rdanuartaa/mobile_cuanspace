@@ -30,7 +30,7 @@ class _DashboardPageState extends State<DashboardPage> {
       body: _pages[_selectedIndex], // Pastikan ini mengambil halaman yang sesuai
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black, // Warna item yang dipilih
+        selectedItemColor: const Color.fromARGB(255, 255, 115, 1), // Warna item yang dipilih
         unselectedItemColor: Colors.black, // Warna item yang tidak dipilih
         backgroundColor: Colors.white, // Pastikan background putih agar kontras
         type: BottomNavigationBarType.fixed, // Agar semua item tetap terlihat
@@ -41,19 +41,19 @@ class _DashboardPageState extends State<DashboardPage> {
         },
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Colors.black), 
+            icon: Icon(Icons.home,), 
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications, color: Colors.black), 
+            icon: Icon(Icons.notifications,), 
             label: "Notifikasi",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart, color: Colors.black), 
+            icon: Icon(Icons.shopping_cart,), 
             label: "Pesanan",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person, color: Colors.black), 
+            icon: Icon(Icons.person,), 
             label: "User",
           ),
         ],
