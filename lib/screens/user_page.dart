@@ -80,7 +80,7 @@ class _UserPageState extends State<UserPage> {
                         children: [
                           CircleAvatar(
                             radius: 50,
-                            backgroundColor: Colors.blue,
+                            backgroundColor: const Color.fromARGB(255, 255, 126, 0),
                             child: Text(
                               _user!.namaLengkap[0], // Inisial dari nama
                               style: const TextStyle(fontSize: 40, color: Colors.white),
@@ -135,7 +135,7 @@ class _UserPageState extends State<UserPage> {
       elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: ListTile(
-        leading: Icon(icon, color: Colors.blue),
+        leading: Icon(icon, color: const Color.fromARGB(255, 255, 126, 0)),
         title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
         subtitle: Text(value),
       ),

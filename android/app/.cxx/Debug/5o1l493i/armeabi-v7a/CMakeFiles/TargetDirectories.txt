@@ -1,0 +1,2 @@
+D:/programs/Github/mobile_cuanspace/android/app/.cxx/Debug/5o1l493i/armeabi-v7a/CMakeFiles/edit_cache.dir
+D:/programs/Github/mobile_cuanspace/android/app/.cxx/Debug/5o1l493i/armeabi-v7a/CMakeFiles/rebuild_cache.dir

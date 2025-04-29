@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../providers/pesanan_provider.dart';
 import 'home_page.dart';
-import 'notification_page.dart';
+import 'makanan_page.dart';
+import 'minuman_page.dart';
 import 'orders_page.dart';
 import 'user_page.dart';
 
 class DashboardPage extends StatefulWidget {
-  final String username; // Menerima username dari LoginPage
+  final String username;
 
   const DashboardPage({super.key, required this.username});
 
@@ -18,44 +21,67 @@ class _DashboardPageState extends State<DashboardPage> {
 
   @override
   Widget build(BuildContext context) {
-    // List halaman dengan username dikirim ke UserPage
+    final pesananProvider = Provider.of<PesananProvider>(context);
+
     final List<Widget> _pages = [
       HomePage(),
-      NotificationPage(),
+      MakananPage(),
+      MinumanPage(),
       OrdersPage(),
-      UserPage(username: widget.username), // Kirim username ke UserPage
+      UserPage(username: widget.username),
     ];
 
     return Scaffold(
-      body: _pages[_selectedIndex], // Pastikan ini mengambil halaman yang sesuai
+      body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black, // Warna item yang dipilih
-        unselectedItemColor: Colors.black, // Warna item yang tidak dipilih
-        backgroundColor: Colors.white, // Pastikan background putih agar kontras
-        type: BottomNavigationBarType.fixed, // Agar semua item tetap terlihat
+        selectedItemColor: Colors.orange,
+        unselectedItemColor: Colors.grey,
+        backgroundColor: Colors.white,
+        type: BottomNavigationBarType.fixed,
         onTap: (index) {
           setState(() {
             _selectedIndex = index;
           });
         },
         items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.fastfood), label: "Makanan"),
+          BottomNavigationBarItem(icon: Icon(Icons.coffee), label: "Minuman"),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Colors.black), 
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications, color: Colors.black), 
-            label: "Notifikasi",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart, color: Colors.black), 
+            icon: Stack(
+              children: [
+                Icon(Icons.shopping_cart),
+                if (pesananProvider.pesanan.isNotEmpty) // Tampilkan badge jika ada pesanan
+                  Positioned(
+                    right: 0,
+                    top: 0,
+                    child: Container(
+                      padding: EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        shape: BoxShape.circle,
+                      ),
+                      constraints: BoxConstraints(
+                        minWidth: 16,
+                        minHeight: 16,
+                      ),
+                      child: Text(
+                        pesananProvider.pesanan.length.toString(),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+              ],
+            ),
             label: "Pesanan",
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person, color: Colors.black), 
-            label: "User",
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "User"),
         ],
       ),
     );
