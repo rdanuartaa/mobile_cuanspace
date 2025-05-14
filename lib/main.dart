@@ -1,36 +1,38 @@
 import 'package:flutter/material.dart';
-import 'screens/login_page.dart';
-import 'screens/register_page.dart';
-import 'screens/dashboard_page.dart';
-import 'screens/home_page.dart';
-import 'screens/notification_page.dart';
-import 'screens/orders_page.dart';
-import 'screens/user_page.dart';
+import 'screens/splash_screen.dart';
+import 'screens/welcome.dart';
+import 'screens/register.dart';
+import 'screens/login.dart';
+import 'screens/home.dart';
+import 'screens/forgotpassword.dart';
+import 'screens/resetpassword.dart'; // Tambahkan impor ini
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter SQLite Auth',
+      title: 'Suan Space',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.orange,
+        scaffoldBackgroundColor: Colors.white,
+        textTheme: TextTheme(
+          bodyMedium: TextStyle(fontFamily: 'Poppins'),
+          headlineSmall: TextStyle(fontFamily: 'Poppins'),
+        ),
       ),
-      initialRoute: '/login',
+      initialRoute: '/splash',
       routes: {
-        '/login': (context) => LoginPage(),
-        '/register': (context) => RegisterPage(),
-        '/dashboard': (context) => DashboardPage(username: '',),
-        '/home': (context) => HomePage(),
-        '/notification': (context) => NotificationPage(),
-        '/order': (context) => OrdersPage(),
-        '/user': (context) => UserPage(username: '',),
+        '/splash': (context) => SplashScreen(),
+        '/welcome': (context) => Welcome(),
+        '/login': (context) => Login(),
+        '/register': (context) => Register(),
+        '/home': (context) => Home(),
+        '/forgot-password': (context) => const ForgotPassword(),
+        '/reset-password': (context) => const ResetPassword(), // Tambahkan rute ini
       },
     );
   }
