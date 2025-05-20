@@ -1,3 +1,5 @@
+import 'package:cuan_space/models/user_detail_model.dart';
+
 class User {
   int? id;
   String namaLengkap;
@@ -50,4 +52,8 @@ class User {
       password: map['password'],
     );
   }
+
+  get userDetail => null;
+
+  get name => null;
 }
